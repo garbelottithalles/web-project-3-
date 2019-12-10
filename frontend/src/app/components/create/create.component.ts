@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SaleService } from '../../sale.service';
 
 @Component({
   selector: 'app-create',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private saleService: SaleService) { }
 
   ngOnInit() {
+    this.saleService.getSales().subscribe((sale) => {
+      console.log(sale)
+    })
   }
 
 }
