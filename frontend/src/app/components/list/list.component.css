@@ -1,0 +1,10 @@
+table{ 
+    width: 80%;
+}
+.mat-column-right{
+    text-align: center;
+}
+.status{
+    color:green;
+    font-weight: 500;
+}
