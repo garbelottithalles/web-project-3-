@@ -31,7 +31,7 @@ router.route('/sales').get((req, res) => {
             console.log(err)
         }
         else{
-            res.json(sales).pretty()
+            res.json(sales)
         }
     })
 })
