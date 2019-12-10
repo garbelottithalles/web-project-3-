@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material';
 
 import { Sale } from '../../sale.model';
 import { SaleService } from '../../sale.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -12,10 +13,9 @@ import { SaleService } from '../../sale.service';
 })
 export class ListComponent implements OnInit {
 
-  sales: Sale[]
-  displayedColums = ['gold', 'cash', 'client', 'payment', 'paid', 'saledAt', 'actions']
+  sales: Sale[];
+  displayedColumns = ['gold', 'cash', 'client', 'payment', 'paid', 'saleAt', 'actions'];
   
-
   constructor(private saleService: SaleService, private router: Router) { }
 
   ngOnInit() {
@@ -26,28 +26,20 @@ export class ListComponent implements OnInit {
     this.saleService
     .getSales()
     .subscribe((data: Sale[]) => {
-      this.sales = data
-      console.log('Data requested..')
-      console.log(this.sales)
+      this.sales = data;
+      console.log('Data requested..');
+      console.log(this.sales);
     })
   }
 
   editSale(id) {
-    this.router.navigate([`/edit/${id}`])
+    this.router.navigate([`/edit/${id}`]);
   }
 
-  
-
-}
-
-/*
-
-
-ngOnInit() {
-    this.saleService.getSales().subscribe((sales) => {
-      console.log(sales)
+  deleteSale(id) {
+    this.saleService.deleteSale(id).subscribe(() => {
+      this.fetchSales()
     })
   }
 
-
-  */ 
+}
