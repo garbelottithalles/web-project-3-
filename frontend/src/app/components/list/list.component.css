@@ -1,10 +1,14 @@
 table{ 
     width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 .mat-column-right{
     text-align: center;
 }
 .status{
-    color:green;
-    font-weight: 500;
+    color:red;
+}
+.out-button{
+    margin-left: 10%;
 }

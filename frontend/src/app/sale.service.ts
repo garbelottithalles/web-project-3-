@@ -16,14 +16,13 @@ export class SaleService {
   getSalesById(id) {
     return this.http.get(`${this.uri}/sales/${id}`)
   }
-  addSale(gold, cash, client, payment, paid, saledAt) {
+  addSale(gold, cash, client, payment, saleAt) {
     const sale = {
       gold: gold,
       cash: cash, 
       client: client, 
       payment: payment,  
-      paid: paid,
-      saledAt: saledAt
+      saleAt: saleAt
     }
 
     return this.http.post(`${this.uri}/sales/add`, sale)

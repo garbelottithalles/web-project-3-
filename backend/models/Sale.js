@@ -17,9 +17,9 @@ const mongoose = require('mongoose')
     },
     paid: {
         type: String,
-        default: 'PAID'
+        default: 'NOT PAID'
     },
-    saledAt: {
+    saleAt: {
         type: String
     },
     dateAt: {

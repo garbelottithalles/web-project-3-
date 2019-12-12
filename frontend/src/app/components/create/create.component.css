@@ -1,0 +1,19 @@
+    
+h2{
+   text-align: center; 
+}
+.create-form{
+    background: rgba(0, 0, 0, 0.03);
+    min-width:150px;
+    width:60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.field-full-width{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.buttons{
+    margin-left: 5%;
+}

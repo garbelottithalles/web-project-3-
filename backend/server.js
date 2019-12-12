@@ -15,14 +15,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // CONFIG mongoose
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/SaleDB').then(() => {
-    console.log('Connecting to DB..! ')
-}).catch((err)=>{
+    console.log('Connecting to DB.. ')
+}).catch((err) => {
     console.log(err)
 })
 
 // MIDDLEWARE
 app.use(cors())
-
 
 //  ROUTES 
 router.route('/sales').get((req, res) => {
@@ -60,7 +59,7 @@ router.route('/sales/add').post((req, res) =>{
 
 router.route('/sales/update/:id').post((req, res) => {
     Sale.findById(req.params.id, (err, sale) => {
-        if(!sale){
+        if(!sale) {
             return next(new Error('Could not load document'))
         }
         else{
@@ -69,7 +68,7 @@ router.route('/sales/update/:id').post((req, res) => {
             sale.client = req.body.client
             sale.payment = req.body.payment
             sale.paid = req.body.paid
-            sale.saledAt = req.body.saledAt
+            sale.saleAt = req.body.saleAt
 
             sale.save().then((sale) =>{
                 res.json('Update done')
@@ -79,7 +78,8 @@ router.route('/sales/update/:id').post((req, res) => {
         }
     })
 })
-router.route('sales/delete/:id').get((req, res) => {
+
+router.route('/sales/delete/:id').get((req, res) => {
     Sale.findByIdAndRemove({_id: req.params.id}, (err, sale) => {
         if(err){
             res.json(err)
@@ -92,5 +92,5 @@ router.route('sales/delete/:id').get((req, res) => {
 
 app.use('/', router)  
 
-// CONFIG port
+// PORT CONFIG
 app.listen(3000)

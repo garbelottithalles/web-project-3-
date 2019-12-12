@@ -1,1 +1,43 @@
-<p>create works!</p>
+<div>
+    <br>
+    <mat-card>
+        <section class="mat-typography">
+            <h2>Register a new sale</h2>
+        </section>
+        <mat-divider></mat-divider>
+        <br>
+        <form [formGroup]="createForm" class="create-form">
+           
+            <mat-form-field class="field-full-width">
+                <input matInput placeholder="Gold value" formControlName="gold" #gold>
+            </mat-form-field>
+
+            <mat-form-field class="field-full-width">
+                <input matInput placeholder="Cash value" formControlName="cash" #cash>
+            </mat-form-field>
+
+            <mat-form-field class="field-full-width">
+                <input matInput placeholder="Client name" formControlName="client" #client>
+            </mat-form-field>
+
+            <mat-form-field class="field-full-width">
+                <input matInput type="text" placeholder="Form of Payment" formControlName="payment" #payment>
+            </mat-form-field>
+
+            <mat-form-field class="field-full-width">
+                <input matInput type="text" placeholder="Sale date" formControlName="saleAt" #saleAt>
+            </mat-form-field>
+            
+            <mat-divider></mat-divider>
+            <br><br>
+            <div class="buttons">
+                <button mat-stroked-button color="primary" routerLink="/list">Back</button>
+                <button type="submit"
+                    (click)="addSale(gold.value, cash.value, client.value, payment.value, saleAt.value)"
+                    [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Add
+                    Sale</button>
+            </div>
+            <br>
+        </form>
+    </mat-card>
+</div>
