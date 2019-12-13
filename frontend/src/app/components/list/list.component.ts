@@ -12,9 +12,11 @@ import { from } from 'rxjs';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
   sales: Sale[];
   displayedColumns = ['gold', 'cash', 'client', 'payment', 'paid', 'saleAt', 'actions'];
+
+  options: string[] = ['gold', 'cash', 'client', 'payment', 'paid', 'saleAt'];
+
   
   constructor(private saleService: SaleService, private router: Router) { }
 

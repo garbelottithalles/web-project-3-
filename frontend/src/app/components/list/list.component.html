@@ -1,9 +1,23 @@
 <div>
     <br>
-    <mat-card>
 
-        <br><br>
+    <br>
+    <mat-card>
+        <br>
+        <br>
+        <form [formGroup]="createForm">
+                <input placeholder="" matInput [matAutocomplete]="auto" >
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of options"  [value]="option">
+                        {{option}}
+                    </mat-option> 
+                </mat-autocomplete>
+                <button type="submit" mat-stroked-button  color="primary" class="top-button">Search</button>
+        </form>
+        <br>
+        <br>
         <mat-divider></mat-divider>
+        <br>
         <br>
         <table mat-table [dataSource]="sales">
             <ng-container matColumnDef="gold">
