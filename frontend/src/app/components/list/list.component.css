@@ -1,16 +1,6 @@
 form{
+    width: 30%;
     float: right;
-    width: 25%;
-    margin-right: 10%;
-}
-form input{
-    width: 55%;
-    margin-left: 19%;
-    position: relative;
-}
-form .top-button{
-    float: right;
-    position: relative;
 }
 table{ 
     width: 80%;
